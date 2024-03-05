@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: beige;
+}
+
+.title {
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  background-color: coral;
+  border-radius: 8px;
+  padding: 8px;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin: auto;
+  width: 100%;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 8px;
+  background-color: wheat;
+  margin-bottom: 8px;
+  padding: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &_done {
+    opacity: 0.7;
+
+    .list-item__text {
+      text-decoration: line-through;
+    }
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    margin-right: 8px;
+  }
+
+  &__delete-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    margin-left: auto;
+    text-decoration: none;
+    padding: 0;
+    transform: rotate(45deg);
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    opacity: 0.7;
+
+    &::before {
+      content: "+";
+    }
+  }
+}
+
+.btn {
+  height: 32px;
+  min-width: 64px;
+  border: 3px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-left: 16px;
+}
+
+.create-task {
+  display: flex;
+  margin-bottom: 8px;
+
+  &__input {
+    height: 32px;
+    border: 3px solid #ccc;
+    border-radius: 8px;
+    flex: 1;
+    padding: 0 10px;
+  }
+}
+
+span {
+  cursor: pointer;
+}
+
+.counter_main {
+  max-width: 600px;
+  height: 100px;
+  margin: auto;
+
+  &__current {
+    color: red;
+  }
+
+  &__done {
+    color: green;
+  }
+}
+
+.filter_wrapper {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+$filter-btn-height: 35px;
+$filter-btn-width: 80px;
+$filter-btn-border-radius: 8px;
+$filter-btn-font-weight: 600;
+
+@mixin filter-btn-common-properties {
+  height: $filter-btn-height;
+  width: $filter-btn-width;
+  color: #fff;
+  border: none;
+  border-radius: $filter-btn-border-radius;
+  cursor: pointer;
+  font-weight: $filter-btn-font-weight;
+}
+
+.filter_wrapper_btn {
+  &__all {
+    @include filter-btn-common-properties;
+    background-color: coral;
+  }
+
+  &__current {
+    @include filter-btn-common-properties;
+    background-color: red;
+  }
+
+  &__done {
+    @include filter-btn-common-properties;
+    background-color: green;
+  }
+}
+
+.message {
+  color: red;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
