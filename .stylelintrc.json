@@ -1,3 +1,6 @@
 {
-  "extends": ["@wemake-services/stylelint-config-scss"]
+  "extends": [
+    "@wemake-services/typescript/recommended",
+    "@wemake-services/javascript"
+  ]
 }
